@@ -7,8 +7,6 @@ import GHCode from "@site/src/components/GHCode";
 import MainDocsGrid from "@site/src/components/MainDocsGrid";
 import MainDocsCalendar from "@site/src/components/MainDocsCalendar";
 import DocsViewer from "@site/src/components/DocsViewer";
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 export default {
   ...MDXComponents,
@@ -17,8 +15,6 @@ export default {
   Row,
   Video,
   GHCode,
-  Tabs,
-  TabItem,
   MainDocsGrid,
   MainDocsCalendar,
   DocsViewer,
