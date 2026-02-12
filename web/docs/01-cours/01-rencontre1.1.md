@@ -3,34 +3,19 @@ title: Introduction à HTML
 description: Cours 1.1 - Introduction à HTML
 ---
 
-# Introduction à HTML - Rencontre #1
+# Introduction à HTML
 
 ## 📋 Table des matières
 
-1. [Menu du cours](#-menu-du-cours)
-2. [Qu'est-ce que HTML ?](#-quest-ce-que-html)
-3. [Structure de base](#-structure-de-base)
-4. [Composition d'un élément HTML](#-composition-dun-élément-html)
-5. [Structure complète d'une page HTML](#-structure-complète-dune-page-html)
-6. [Les commentaires](#-les-commentaires)
-7. [Les caractères spéciaux](#-les-caractères-spéciaux)
-8. [Éléments HTML de base](#-éléments-html-de-base)
-9. [Navigation et liens](#-navigation-et-liens)
-10. [Validation du code HTML](#-validation-du-code-html)
-
----
-
-## 📋 Menu du cours
-
-### Introduction à HTML
-
-![Logo Html](../../static/img/1/logo-html.png)
-
-- C'est quoi ?
-- Structure de base
-- Éléments de base
-- Navigation
-- Validation
+1. [Qu'est-ce que HTML ?](#-quest-ce-que-html)
+2. [Structure de base](#-structure-de-base)
+3. [Composition d'un élément HTML](#-composition-dun-élément-html)
+4. [Structure complète d'une page HTML](#-structure-complète-dune-page-html)
+5. [Les commentaires](#-les-commentaires)
+6. [Les caractères spéciaux](#-les-caractères-spéciaux)
+7. [Éléments HTML de base](#-éléments-html-de-base)
+8. [Navigation et liens](#-navigation-et-liens)
+9. [Validation du code HTML](#-validation-du-code-html)
 
 ---
 
@@ -39,6 +24,8 @@ description: Cours 1.1 - Introduction à HTML
 ### Définition
 
 **HTML** = **H**yper**T**ext **M**arkup **L**anguage
+
+![Logo Html](../../static/img/1/logo-html.png)
 
 HTML permet de décrire la **structure** d'une page Web :
 - Texte
@@ -73,8 +60,8 @@ Chaque élément HTML est représenté par des **balises**.
 L'élément `p` correspond à un paragraphe.
 
 
-**Rendu :**
-![Exemple balise P](../../static/img/1/exemple-p.png)
+**Résultats :**
+<p> La balise p représente un paragraphe de texte. </p>
 ---
 
 ### ✅ Règles des balises
@@ -148,9 +135,7 @@ Voici 2 exemples simples :
 <img src="ehh.png" alt="Confusion">
 ```
 
-**Rendu :**
-
-![Exemple br et img](../../static/img/1/br-confusion.png)
+**Résultats :**
 
 :::info information
     Il y a plusieurs autres balises auto-fermantes (`<hr>`, `<input>`, `<meta>`, `<link>`, etc.)
@@ -469,7 +454,7 @@ Ces entités de caractères ont la forme suivante : **`&...;`**
 </p>
 ```
 
-**Rendu :**
+**Résultats :**
 ```
 Copyright : ©
 Espace :   Bonjour
@@ -512,9 +497,11 @@ C'est la plus belle chose au monde.</p>
 <p>J'adore écouter un prof pendant des heures.</p>
 ```
 
-**Rendu :**
+**Résultats :**
+<p>J'aime l'école. C'est la plus belle chose au monde.</p>
 
-![Exemple balise P et br](../../static/img/1/exemple-p-2.png)
+<p>J'adore écouter un prof pendant des heures.</p>
+
 ---
 
 :::info information
@@ -540,9 +527,12 @@ C'est un match parfait : **br** permet d'insérer des sauts de ligne **manuellem
 <p>J'adore écouter un prof pendant des heures.</p>
 ```
 
-**Rendu :**
-
-![Exemple balise P et br](../../static/img/1/exemple-p-et-br.png)
+**Résultats :**
+<p>J'aime l'école.</p>
+<p>C'est la plus </p>
+<p>belle</p>
+<p>chose au monde.</p>
+<p>J'adore écouter un prof pendant des heures.</p>
 
 :::info information
     Remarquons que l'élément br n'a ni contenu, ni balise fermante.
@@ -565,9 +555,14 @@ Utilisés pour insérer des **titres** ou des **sous-titres**.
 <p>Paragraphe ordinaire avec l'élément p</p>
 ```
 
-**Rendu :**
-
-![Exemple balise h1,2,3,4,5 et 6](../../static/img/1/exemple-h1-6.png)
+**Résultats :**
+<h1>Titre de niveau 1</h1>
+<h2>Titre de niveau 2</h2>
+<h3>Titre de niveau 3</h3>
+<h4>Titre de niveau 4</h4>
+<h5>Titre de niveau 5</h5>
+<h6>Titre de niveau 6</h6>
+<p>Paragraphe ordinaire avec l'élément p</p>
 
 
 :::info information
@@ -589,9 +584,12 @@ Utilisés pour insérer des **titres** ou des **sous-titres**.
 </p>
 ```
 
-**Rendu :**
-
-![Exemple balise strong et em](../../static/img/1/exemple-strong-em.png)
+**Résultats :**
+<p>
+    Texte en <strong>gras</strong>,
+    en <em>italique</em>,
+    ou <strong><em>les deux</em></strong>.
+</p>
 
 :::info information
     - On remarque que ces éléments sont glissés à l'intérieur d'un paragraphe (d'un élément `<p>`), directement dans le texte.
@@ -626,9 +624,17 @@ Permettent d'insérer des listes à **puces** (`<ul>`) ou **numérotées** (`<ol
 </ol>
 ```
 
-**Rendu :**
-
-![Exemple balise strong et em](../../static/img/1/exemple-ol-ul.png)
+**Résultats :**
+<ul>
+    <li>Un élément</li>
+    <li>Un autre...</li>
+    <li>Un dernier !</li>
+</ul>
+<ol>
+    <li>Premier élément</li>
+    <li>Deuxième élément</li>
+    <li>Troisième élément</li>
+</ol>
 
 :::info information
 - **`<li>`** représente chaque élément d'une liste
@@ -656,9 +662,12 @@ Il suffit d'insérer une autre liste dans un élément `<li>`.
 </ul>
 ```
 
-**Rendu :**
-
-![Exemple balise strong et em](../../static/img/1/exemple-ol-ul-imbrique.png)
+**Résultats :**
+- Banane
+- Pomme
+  1. Granny Smith
+  2. Mcintosh
+- Cerise
 
 :::info information
 Ici, on remarque qu'après « pomme », on n'a pas `</li>` directement puisqu'il est situé tout de suite après la sous-liste.
@@ -677,9 +686,14 @@ Insère une **ligne horizontale** dans la page Web.
 <p>Deuxième section de la page.</p>
 ```
 
-**Rendu :**
+**Résultats :**
 
-![Exemple balise strong et em](../../static/img/1/exemple-hr.png)
+Première section de la page.
+
+---
+
+Deuxième section de la page.
+
 
 :::info information
 Cette ligne prendra toute la largeur disponible.
@@ -958,7 +972,8 @@ Le texte « **Accueil** » est entouré d'un élément `<a>` qui mène vers la p
 
 
 
-**Rendu :**
+**Résultats :**
+
 [Visitez ce site Web pour plus d'info sur les chaises.](https://fr.wikipedia.org/wiki/Chaise)
 
 ---
@@ -970,10 +985,6 @@ Le texte « **Accueil** » est entouré d'un élément `<a>` qui mène vers la p
 ```html
 <a href="accueil_imagetest.docx">Téléchargez ce document pour voir plus longtemps.</a>
 ```
-
-
-**Rendu :**
-[Téléchargez ce document] → Ouvre/télécharge le fichier Word
 
 ---
 
@@ -1002,7 +1013,7 @@ Si vous faites des erreurs de syntaxe, ce genre d'outil se met à très mal fonc
 
 ### Comment valider ?
 
-Grâce à l'outil : **https://validator.w3.org/**
+Grâce à l'outil : **[https://validator.w3.org/](https://validator.w3.org/)**
 
 **Étapes :**
 1. Choisissez l'onglet "Validate by File Upload"
@@ -1013,7 +1024,7 @@ Grâce à l'outil : **https://validator.w3.org/**
 
 **Outil W3C Markup Validation Service** :
 - Validate by URI
-- **Validate by File Upload** ← Recommandé
+- Validate by File Upload
 - Validate by Direct Input
 
 ---
@@ -1050,240 +1061,3 @@ Le validateur W3C détecte :
 - etc.
 
 ---
-
-### ❓ Question de validation
-
-**Quels sont les 4 éléments à corriger / améliorer ?**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Page d'exemple</title>
-</head>
-
-<body>
-    <h1>Titre de la page</h2>
-    
-    <p>Petit paragraphe
-    <strong>em>inoffeensif.</strong></em></p>
-</body>
-
-</html>
-```
-
-
----
-
-### ✅ Correction
-
-#### Erreur 1 : Ajouter la langue dans `<html>`
-
-Améliore le référencement pour les moteurs de recherche !
-
-```html
-<!DOCTYPE html>
-<html lang="fr">
-```
-
-
-**Validateur :** "The character encoding was not declared. Proceeding using `windows-1252`"
-
----
-
-#### Erreur 2 : Ajouter la famille de caractères dans le `<head>`
-
-```html
-<head>
-    <meta charset="UTF-8">
-    <title>Page d'exemple</title>
-</head>
-```
-
-
-
-**Validateur :** "No `p` element in scope but a `p` end tag seen."
-
----
-
-#### Erreur 3 : Mettre `</h1>` plutôt que `</h2>`
-
-Pour la balise de fermeture qui était erronée.
-
-```html
-<h1>Titre de la page</h1>
-```
-
-
-
-**Validateur :** "End tag `strong` violates nesting rules."
-
----
-
-#### Erreur 4 : Les balises `<strong>` et `<em>` sont croisées
-
-Il faut les imbriquer correctement.
-
-**Avant (incorrect) :**
-```html
-<strong>em>inoffeensif.</strong></em>
-```
-
-**Après (correct) :**
-```html
-<strong><em>inoffeensif.</em></strong>
-```
-
-
----
-
-### ✅ Code corrigé final
-
-```html
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Page d'exemple</title>
-</head>
-
-<body>
-    <h1>Titre de la page</h1>
-    
-    <p>Petit paragraphe
-    <strong><em>inoffeensif.</em></strong></p>
-</body>
-
-</html>
-```
-
-
-
-**Le validateur est content** ☺
-
-**Message du validateur :**
-> Document checking completed. No errors or warnings to show.
-
----
-
-## 📝 Résumé final de la partie HTML
-
-### Concepts clés
-
-1. **HTML** = HyperText Markup Language
-2. HTML décrit la **structure** d'une page Web
-3. Les éléments sont représentés par des **balises** (`<element>` et `</element>`)
-4. Certains éléments peuvent être **imbriqués**, mais **jamais croisés**
-5. Certaines balises sont **auto-fermantes** (br, img, hr, input, meta, link, etc.)
-6. Une page HTML minimale contient : `<!DOCTYPE>`, `<html>`, `<head>`, `<body>`
-
----
-
-### Structure d'une page HTML
-
-```html
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>Titre de la page</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <!-- Contenu visible -->
-    </body>
-</html>
-```
-
----
-
-### Éléments HTML complets
-
-| Élément | Description | Exemple |
-|---------|-------------|---------|
-| `<p>` | Paragraphe | `<p>Texte</p>` |
-| `<br>` | Saut de ligne | `Ligne 1<br>Ligne 2` |
-| `<h1>` à `<h6>` | Titres (6 niveaux) | `<h1>Titre principal</h1>` |
-| `<strong>` | Texte en gras | `<strong>Important</strong>` |
-| `<em>` | Texte en italique | `<em>Emphase</em>` |
-| `<ul>` | Liste à puces | `<ul><li>Item</li></ul>` |
-| `<ol>` | Liste numérotée | `<ol><li>Item</li></ol>` |
-| `<li>` | Élément de liste | `<li>Élément</li>` |
-| `<hr>` | Ligne horizontale | `<hr>` |
-| `<img>` | Image | `<img src="image.jpg" alt="Description">` |
-| `<a>` | Lien hypertexte | `<a href="page.html">Lien</a>` |
-
----
-
-### Chemins relatifs et absolus
-
-#### Chemins relatifs
-
-- **Même dossier** : `src="image.jpg"`
-- **Sous-dossier** : `src="images/photo.jpg"`
-- **Dossier parent** : `src="../image.jpg"`
-- **Combinaison** : `src="../../dossier/image.jpg"`
-
-#### Chemins absolus
-
-- **URL complète** : `src="https://example.com/image.jpg"`
-
----
-
-### Validation du code
-
-✅ **Toujours valider votre code HTML** avec [https://validator.w3.org/](https://validator.w3.org/)
-
-✅ **Erreurs courantes :**
-- Balise fermante manquante ou incorrecte
-- Balises croisées
-- Attribut `lang` manquant sur `<html>`
-- `<meta charset>` manquant
-- Attribut `alt` manquant sur `<img>`
-
----
-
-### Bonnes pratiques
-
-✅ Toujours déclarer `<!DOCTYPE html>`
-
-✅ Toujours ajouter `lang="fr"` (ou autre langue) sur `<html>`
-
-✅ Toujours inclure `<meta charset="UTF-8">`
-
-✅ Utiliser des commentaires pour structurer votre code
-
-✅ Indenter correctement votre code pour plus de lisibilité
-
-✅ Valider votre code avant publication
-
-✅ Toujours ajouter l'attribut `alt` sur les images
-
----
-
-## 🎯 Fin de la partie HTML
-
-**Félicitations !** Vous maîtrisez maintenant les bases de HTML ! 🎉
-
-Vous savez :
-- ✅ Créer la structure d'une page Web
-- ✅ Utiliser les éléments de base (titres, paragraphes, listes, etc.)
-- ✅ Insérer des images
-- ✅ Créer des liens de navigation
-- ✅ Valider votre code
-
----
-
-**Prochaine étape : Introduction à CSS** 🎨
-
-CSS (Cascading Style Sheets) vous permettra de :
-- 🎨 Changer les couleurs
-- ✍️ Modifier les polices
-- 📐 Ajuster les espacements
-- 🖼️ Créer des mises en page
-- ✨ Ajouter des animations
-- Et bien plus !
-
----
-

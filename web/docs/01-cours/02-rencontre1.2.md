@@ -3,21 +3,31 @@ title: Introduction à CSS
 description: Cours 1.2 - Introduction à CSS
 ---
 
-# Introduction à CSS - Rencontre #2
+# Introduction à CSS
 
 ## 📋 Table des matières
 
 1. [Qu'est-ce que CSS ?](#-quest-ce-que-css)
 2. [Syntaxe de CSS](#-syntaxe-de-css)
 3. [Méthodes d'application du CSS](#-méthodes-dapplication-du-css)
-4. [Les sélecteurs CSS](#-les-sélecteurs-css)
-5. [Priorité des sélecteurs](#-priorité-des-sélecteurs)
-6. [CSS externe](#-css-externe)
+    1. [CSS Intraligne](#méthode-1--css-intraligne) (dans la balise ouvrante avec `style="..."`)
+    2. [CSS Interne](#méthode-2--css-interne) (dans le `<head>` avec `<style>`)
+        1. [Sélecteur de type Balise](#type-1-de-sélecteur--sélecteur-élément)
+        2. [Sélecteur de type Classe](#type-2-de-sélecteur--sélecteur-classe)
+        3. [Sélecteur de type Id](#type-3-de-sélecteur--sélecteur-id)
+    3. **[CSS Externe](#méthode-3--css-externe)** (fichier `.css` séparé) **← Recommandé**
 7. [Éléments de groupement](#-éléments-de-groupement)
-8. [Éléments s��mantiques HTML5](#-éléments-sémantiques-html5)
-9. [Styles de base - Couleurs](#-styles-de-base---couleurs)
-10. [Styles de texte](#-styles-de-texte)
-11. [Styles de police](#-styles-de-police)
+    1. [Div](#élément-div)
+    2. [Span](#élément-span)
+8. [Éléments sémantiques HTML5](#-éléments-sémantiques-html5)
+    1. [Header](#élément-header)
+    2. [Nav](#élément-nav)
+    3. [Main](#élément-main)
+    4. [Footer](#élément-footer)
+9. [Styles de base](#-styles-de-base)
+    1. [Couleurs](#-couleurs)
+    2. [Texte](#-texte)
+    3. [Police de caractères](#-police-de-caractères)
 
 ---
 
@@ -25,9 +35,9 @@ description: Cours 1.2 - Introduction à CSS
 
 ### Introduction à CSS
 
-<!-- ![Logo CSS](../../static/img/1/logo-css.png) -->
-
 **CSS** = **C**ascading **S**tyle **S**heet (Feuille de style en cascade)
+
+![Logo CSS](../../static/img/2/logo-css.png)
 
 ---
 
@@ -43,20 +53,21 @@ CSS permet de décrire **comment les éléments HTML doivent être affichés** :
 
 ---
 
-### Avantages du CSS
+:::info information
 
-✅ **Économie de temps et de code**
+- **Économie de temps et de code**
 
-Peut décrire l'affichage de plusieurs pages à la fois ! (Économie de temps et de code)
+        Peut décrire l'affichage de plusieurs pages à la fois ! (Économie de temps et de code)
 
-✅ **Séparation du contenu et du style**
+- **Séparation du contenu et du style**
 
-Le HTML s'occupe de la structure, le CSS s'occupe de l'apparence.
+        Le HTML s'occupe de la structure, le CSS s'occupe de l'apparence.
 
-✅ **Fonctionne avec des sélecteurs et des règles**
+- **Fonctionne avec des sélecteurs et des règles**
 
-Les **sélecteurs** permettent de cibler les éléments HTML, et les **règles** définissent leur style.
+        Les **sélecteurs** permettent de cibler les éléments HTML, et les **règles** définissent leur style.
 
+:::
 ---
 
 ### Exemple simple
@@ -67,13 +78,9 @@ Voici un petit morceau de CSS qui change le style de notre paragraphe :
 <p style="color:violet;">Petit paragraphe de couleur violette.</p>
 ```
 
-<!-- ![Exemple CSS violet](../../static/img/1/exemple-css-violet.png) -->
+**Résultats :**
 
-**Rendu :**
-```
-Petit paragraphe de couleur violette.
-```
-(en violet)
+![Exemple CSS violet](../../static/img/2/exemple-p-violet.png)
 
 `color:violet;` est un petit morceau de CSS qui change le style de notre paragraphe.
 
@@ -93,32 +100,36 @@ attribut: valeur;
 
 **Quelques exemples :**
 
-```css
-color: blue;
-border: solid black 3px;
-text-decoration: none;
-font-weight: bold;
+```css                      
+                            /* Commentaires */
+color: blue;                /* Transforme la couleur du texte en bleu */
+border: solid black 3px;    /* Ajoute une bordure pleine, noir de 3px de large */
+text-decoration: none;      /* Enlève la décoration d'un élément html (ex. le sous-lignement d'un lien) */
+font-weight: bold;          /* Transforme le texte en gras*/
+
 ```
 
-### 📌 Points importants
-
-✅ Deux points séparent l'**attribut** et sa **valeur**
-
-✅ Un point-virgule conclut la règle
+:::info information
+    - Deux points séparent l'**attribut** et sa **valeur**
+    - Un point-virgule conclut la règle
+:::
 
 ---
 
 ## 🔧 Méthodes d'application du CSS
 
-Il existe **3 manières** d'appliquer une règle CSS :
+Il existe **3 méthodes** d'appliquer une règle CSS :
 
-1. **CSS Intraligne** (dans la balise ouvrante avec `style="..."`)
-2. **CSS interne** (dans le `<head>` avec `<style>`)
-3. **CSS externe** (fichier `.css` séparé)
+1. [CSS Intraligne](#méthode-1--css-intraligne) (dans la balise ouvrante avec `style="..."`)
+2. [CSS Interne](#méthode-2--css-interne) (dans le `<head>` avec `<style>`)
+    1. [Sélecteur de type Balise](#type-1-de-sélecteur--sélecteur-élément)
+    2. [Sélecteur de type Classe](#type-2-de-sélecteur--sélecteur-classe)
+    3. [Sélecteur de type Id](#type-3-de-sélecteur--sélecteur-id)
+3. **[CSS Externe](#méthode-3--css-externe)** (fichier `.css` séparé) **← Recommandé**
 
 ---
 
-### Manière #1 : CSS Intraligne
+### Méthode #1 : CSS Intraligne
 
 On glisse les règles CSS dans l'attribut **style** d'une balise ouvrante.
 
@@ -127,30 +138,17 @@ Comme pour tout attribut, les règles CSS devront être entourées de guillemets
 **Exemple :**
 
 ```html
-<p style="color:red;">Paragraphe rouge.</p>
+<a style="background-color: #BB2649;" href="https://www.w3schools.com/colors/colors_trends.asp">2023 - Viva Magenta</a>
 ```
 
-<!-- ![CSS Intraligne](../../static/img/1/css-intraligne.png) -->
 
-**HTML complet :**
+**Résultats :**
 
-```html
-<html>
-    <!-- ... -->
-    <body>
-        <h1 style="font-weight:bold;color:blue;">Allo</h1>
-    </body>
-</html>
-```
-
-**Rendu :**
-- Exemple
-- Bonjour
-- Allo
+![Exemple CSS intraligne](../../static/img/2/exemple-inline.png)
 
 ---
 
-### Manière #2 : CSS interne
+### Méthode #2 : CSS Interne
 
 Pour comprendre cette deuxième méthode, nous devons d'abord étudier les **sélecteurs CSS**.
 
@@ -166,9 +164,13 @@ sélecteur {
 }
 ```
 
----
+Il existe plusieurs types de sélecteurs CSS. Voici les 3 principaux :
 
-### CSS interne (Sélecteurs)
+1. [Sélecteur de type Balise](#type-1-de-sélecteur--sélecteur-élément) (p, h1, div, etc.)
+2. [Sélecteur de type Classe](#type-2-de-sélecteur--sélecteur-classe) (.nom_classe)
+3. [Sélecteur de type Id](#type-3-de-sélecteur--sélecteur-id) (#nom_id)
+
+---
 
 #### Type 1 de sélecteur : Sélecteur élément
 
@@ -191,19 +193,16 @@ h1 {
 }
 ```
 
-<!-- ![Sélecteur élément](../../static/img/1/selecteur-element.png) -->
-
-Ce petit carré bleu est un échantillon de la couleur automatiquement généré par VS Code.
-
 ---
 
-### Où insère-t-on le CSS interne avec les sélecteurs ?
+##### Où insère-t-on le CSS interne avec les sélecteurs ?
 
-Dans la balise `<style>`, dans une balise qu'on nomme `<style>` :
+Dans la balise `<head>`, avec une balise qu'on nomme `<style>` :
 
 ```html
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page d'exemple</title>
     <style>
         p {
@@ -220,25 +219,12 @@ Dans la balise `<style>`, dans une balise qu'on nomme `<style>` :
 </body>
 ```
 
-<!-- ![CSS interne dans head](../../static/img/1/css-interne-head.png) -->
+**Résultats :**
 
-**Rendu :**
-- Titre de la page
-- Paragraphe en bleu.
-
+![CSS interne dans head](../../static/img/2/exemple-balise-style.png)
 ---
 
-## 🎯 Les sélecteurs CSS
-
-Il existe plusieurs types de sélecteurs CSS. Voici les 3 principaux :
-
-1. **Sélecteur élément** (p, h1, div, etc.)
-2. **Sélecteur classe** (.nom_classe)
-3. **Sélecteur id** (#nom_id)
-
----
-
-### Type 2 de sélecteur : Sélecteur classe
+#### Type 2 de sélecteur : Sélecteur classe
 
 Ce type de sélecteur peut avoir n'importe quel nom, mais il doit être appliqué aux éléments concernés grâce à l'attribut **class**.
 
@@ -248,32 +234,44 @@ Ce type de sélecteur peut avoir n'importe quel nom, mais il doit être appliqu�
 <p class="ma_classe">Paragraphe en violet.</p>
 ```
 
-**Remarquez que ce sélecteur DOIT être précédé d'un point.** Cela dit, quand on précise le nom de la classe dans l'attribut **class**, on ne met pas de point.
-
-On peut appliquer cette classe à autant d'éléments qu'on le souhaite !
-
 ```css
 .ma_classe {
     color: rebeccapurple;
 }
 ```
 
-<!-- ![Sélecteur classe](../../static/img/1/selecteur-classe.png) -->
+**Résultats :**
 
-**Rendu :**
+![CSS interne dans head](../../static/img/2/exemple-balise-style-2.png)
 
+:::warning Attention
+Remarquez que ce sélecteur **DOIT** être précédé d'un point.
+
+```css
+p {
+    color: red;             /*Applique une couleur à tous les balises de p*/
+}
+
+.p {                        /*Applique une couleur à tous les classes p*/
+    color: rebeccapurple;
+}
 ```
-Titre de la page
-Paragraphe en violet.
-```
+
+On peut appliquer cette classe à autant d'éléments qu'on le souhaite !
+
+:::
 
 ---
 
-### Type 3 de sélecteur : Sélecteur id
+#### Type 3 de sélecteur : Sélecteur id
 
 Ce type de sélecteur peut avoir n'importe quel nom, mais il doit être appliqué à l'élément concerné grâce à l'attribut **id**.
 
 **Exemple :**
+
+```html
+<p id="mon_id">Paragraphe en jaune.</p>
+```
 
 ```css
 #mon_id {
@@ -281,91 +279,38 @@ Ce type de sélecteur peut avoir n'importe quel nom, mais il doit être appliqu�
 }
 ```
 
-```html
-<p id="mon_id">Paragraphe en jaune.</p>
-```
+**Résultats :**
 
-<!-- ![Sélecteur id](../../static/img/1/selecteur-id.png) -->
+![CSS interne dans head](../../static/img/2/exemple-balise-style-3.png)
 
-**Remarquez que ce sélecteur doit être précédé d'un dièse.** Cela dit, quand on précise le nom de l'id dans l'attribut **id**, on ne met pas de dièse.
+:::warning Attention
+Remarquez que ce sélecteur **DOIT** être précédé d'un dièse.
 
 **La différence avec une classe :** On ne peut l'appliquer qu'à **un seul élément** par page Web !
+:::
 
----
-
-### Classes et IDs multiples
-
-**Tous les éléments HTML peuvent avoir un id et / ou une classe.**
-
-**Un élément HTML peut avoir plusieurs classes** et un seul id.
-
-Séparez simplement vos classes par des espaces :
+:::info information
+Un élément HTML peut avoir plusieurs **classes** et un seul **id**.
 
 ```html
-<p class="classe1 classe2">Paragraphe en jaune.</p>
+<p class="classe-paragraphe classe-main classe-importante" id="id-p-jaune">
+    Paragraphe en jaune.
+</p>
 ```
+
+Cette exemple possède 3 classes :
+1. ```classe-paragraphe```
+2. ```classe-main```
+3. ```classe-importante```
+
+et son id ```id-p-jaune```.
+:::
 
 ---
 
-## ⚖️ Priorité des sélecteurs
+### Méthode #3 : CSS Externe
 
-### Question de priorité
-
-**De quelle couleur sera chaque paragraphe ?**
-
-```html
-<style>
-    .blue {color: blue;}
-    #red {color: red;}
-    p {color: goldenrod; font-weight:bold;}
-</style>
-
-<p class="blue">Paragraphe 1</p>
-<p>Paragraphe 2</p>
-<p class="blue" id="red">Paragraphe 3</p>
-<p style="color:greenyellow;" id="red">Paragraphe 4</p>
-```
-
-<!-- ![Question priorité](../../static/img/1/question-priorite.png) -->
-
----
-
-### Réponse : Priorité des sélecteurs
-
-S'il y a un conflit de style, la priorité respectée sera la suivante :
-
-**Style intraligne > ID > Classe > Élément**
-
-```css
-#un_id {color: red;}
-.une_classe {color: blue;}
-p {color: green;}
-```
-
-**Réponses :**
-
-```html
-<p class="blue">Paragraphe 1</p>              <!-- Bleu -->
-<p>Paragraphe 2</p>                            <!-- Goldenrod (gras) -->
-<p class="blue" id="red">Paragraphe 3</p>     <!-- Rouge -->
-<p style="color:greenyellow;" id="red">Paragraphe 4</p>  <!-- Vert-jaune -->
-```
-
-<!-- ![Réponse priorité](../../static/img/1/reponse-priorite.png) -->
-
-**Rendu :**
-- Paragraphe 1 (bleu)
-- Paragraphe 2 (goldenrod gras)
-- Paragraphe 3 (rouge)
-- Paragraphe 4 (vert-jaune)
-
----
-
-## 📄 CSS externe
-
-### Manière #3 : CSS externe
-
-Fonctionne exactement comme le CSS interne... mais au lieu de glisser du CSS dans `<style>` dans le `<head>`... on va l'insérer dans **un autre fichier**.
+Cette méthode permet de directement inserer le **CSS** dans **un autre fichier**.
 
 C'est un fichier avec l'extension **.css**
 
@@ -377,11 +322,9 @@ On y glisse nos sélecteurs et nos règles CSS comme dans le `<head>`, mais on d
 
 **Cette ligne sert simplement à indiquer la famille de caractères du fichier CSS.**
 
-<!-- ![CSS externe fichier](../../static/img/1/css-externe-fichier.png) -->
-
 ---
 
-### Lier le fichier CSS à la page HTML
+#### Lier le fichier CSS à la page HTML
 
 Par contre, ce fichier doit être « associé » à notre page Web pour fonctionner.
 
@@ -396,8 +339,6 @@ On utilise pour ça l'élément **link** dans le `<head>` :
 ```
 
 **Ce lien relatif vers notre fichier CSS externe** fonctionne comme les éléments **img** et les éléments **a** !
-
-<!-- ![Lien CSS externe](../../static/img/1/lien-css-externe.png) -->
 
 Cet attribut permet de spécifier le type de relation avec le fichier associé. Dans ce cas-ci, c'est une feuille de styles.
 
@@ -426,21 +367,11 @@ Dans le cadre du cours, nous utiliserons les trois manières à des fins pédago
 
 ### Introduction
 
-Disons qu'on souhaite appliquer un style à quelques paragraphes précis...
+Disons qu'on souhaite appliquer un style à quelques paragraphes précis, il faut trouver une façon de selectionner plusieurs parapgraphes simultannément !
 
 **Sans élément de groupement :**
 
 ```html
-<head>
-    <meta charset="UTF-8">
-    <title>Page d'exemple</title>
-    <style>
-        .blue {
-            color: blue;
-        }
-    </style>
-</head>
-
 <h1>Titre de la page</h1>
 
 <p>Un premier paragraphe.</p>
@@ -451,16 +382,15 @@ Disons qu'on souhaite appliquer un style à quelques paragraphes précis...
 <p>Un sixième paragraphe.</p>
 ```
 
-<!-- ![Sans groupement](../../static/img/1/sans-groupement.png) -->
+```css
+    .blue {
+        color: blue;
+    }
+```
 
-**Rendu :**
-- Titre de la page
-- Un premier paragraphe.
-- Un deuxième paragraphe.
-- Un troisième paragraphe. (bleu)
-- Un quatrième paragraphe. (bleu)
-- Un cinquième paragraphe. (bleu)
-- Un sixième paragraphe.
+**Résultats :**
+
+![Sans groupement](../../static/img/2/exemple-groupement.png)
 
 ---
 
@@ -483,18 +413,14 @@ L'élément **div** permet (entre autre) d'appliquer un style à plusieurs balis
 <p>Un sixième paragraphe.</p>
 ```
 
-<!-- ![Avec div](../../static/img/1/avec-div.png) -->
+**Résultats :**
 
-**Rendu :**
-- Titre de la page
-- Un premier paragraphe.
-- Un deuxième paragraphe.
-- Un troisième paragraphe. (bleu)
-- Un quatrième paragraphe. (bleu)
-- Un cinquième paragraphe. (bleu)
-- Un sixième paragraphe.
+![Avec groupement](../../static/img/2/exemple-groupement.png)
 
-✅ **Pas besoin d'appliquer la classe à chaque élément p.**
+
+:::info Information
+Vous pouvez voir qu'il n'y a aucune différence dans le Résultats de la page. Il n'est donc pas nécéssaire de définir une classe à chaque élément p.
+:::
 
 ---
 
@@ -509,46 +435,17 @@ L'élément **span** est similaire à div... mais pour une **portion de texte** 
 ```
 
 ```css
-<head>
-    <meta charset="UTF-8">
-    <title>Page d'exemple</title>
-    <style>
-        .rouge {
-            color: red;
-        }
-    </style>
-</head>
+    .rouge {
+        color: red;
+    }
 ```
 
-<!-- ![Span exemple](../../static/img/1/span-exemple.png) -->
+**Résultats :**
 
-**Rendu :**
-```
-J'aimerais que seul le mot span soit coloré.
-```
-(le mot "span" est en rouge)
+![Span exemple](../../static/img/2/exemple-span.png) 
 
 ---
-
-### Éléments sémantiques vs div/span
-
-Il existe d'autres éléments de groupement, comme **div** et **span**... mais ils sont **sémantiques**.
-
-Les éléments **div** et **span** ne sont pas sémantiques : Ils sont **utilitaires / pratiques**, ils nous permettent de grouper du texte ou des éléments.
-
-Les éléments **header**, **nav**, **main** et **footer** sont sémantiques : Ils donnent une signification aux éléments qu'ils regroupent et ne devrait être utilisés qu'une fois par page Web chacun. (Sauf nav)
-
-**En terme d'utilité, ils sont similaires à div :** Ils regroupent des éléments.
-
-**Cependant, sémantique / signification qu'ils apportent à leur section de la page Web offre des avantages au niveau de l'accessibilité** (Accès au contenu pour les utilisateurs avec handicap).
-
-:::warning Attention
-En terme d'utilité, ils sont similaires à **div** : Ils regroupent des éléments.
-:::
-
----
-
-## 🏛️ Éléments sémantiques HTML5
+## 📦 Éléments sémantiques HTML5
 
 ### Élément `<header>`
 
@@ -562,10 +459,8 @@ Encadré en rouge ici :
 </header>
 ```
 
-<!-- ![Header exemple](../../static/img/1/header-exemple.png) -->
-
 **Exemple visuel :**
-Site w3schools.com avec le header encadré en rouge (logo HTML, bannière verte "Next")
+![Header exemple](../../static/img/2/exemple-header.png)
 
 ---
 
@@ -587,29 +482,8 @@ Il peut y en avoir plusieurs dans une page.
 </nav>
 ```
 
-<!-- ![Nav exemple](../../static/img/1/nav-exemple.png) -->
-
 **Exemple visuel :**
-Menu de navigation horizontal (HTML, CSS, JAVASCRIPT, SQL, PYTHON, JAVA, PHP, etc.)
-
----
-
-### Élément `<footer>`
-
-**Pied de page**, souvent commun à toutes les pages d'un site Web. Contient logo, copyrights, « à propos », etc.
-
-Encadré en rouge ici :
-
-```html
-<footer>
-    <!-- Contenu du footer -->
-</footer>
-```
-
-<!-- ![Footer exemple](../../static/img/1/footer-exemple.png) -->
-
-**Exemple visuel :**
-Footer avec plusieurs colonnes de liens, copyright, etc.
+![nav exemple](../../static/img/2/exemple-nav.png)
 
 ---
 
@@ -629,22 +503,90 @@ Encadré en rouge ici :
 </main>
 ```
 
-<!-- ![Main exemple](../../static/img/1/main-exemple.png) -->
-
 **Exemple visuel :**
-Section principale avec "HTML Tutorial", paragraphe, exemples de code
+![Main exemple](../../static/img/2/exemple-main.png)
 
 ---
 
-## 🎨 Styles de base - Couleurs
+### Élément `<footer>`
 
-### Introduction
+**Pied de page**, souvent commun à toutes les pages d'un site Web. Contient logo, copyrights, « à propos », etc.
+
+Encadré en rouge ici :
+
+```html
+<footer>
+    <!-- Contenu du footer -->
+</footer>
+```
+
+**Exemple visuel :**
+![Footer exemple](../../static/img/2/exemple-footer.png)
+
+---
+
+### Exemple complet
+
+Voici un exemple complet de la stucture 
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- Métadonnées -->
+        <title>Page d'exemple</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+
+    <body>
+
+       <header>
+            <!-- Contenu du header -->
+
+             <nav>
+                <!-- Contenu du nav -->
+            </nav>
+        </header>
+
+        <main>
+            <!-- Contenu du main -->
+        </main>
+
+        <footer>
+            <!-- Contenu du footer -->
+        </footer>
+
+    </body>
+
+</html>
+```
+
+### Éléments sémantiques vs div/span
+
+Il existe d'autres éléments de groupement, comme **div** et **span**... mais ils sont **sémantiques**.
+
+Les éléments **div** et **span** ne sont pas sémantiques : Ils sont **utilitaires / pratiques**, ils nous permettent de grouper du texte ou des éléments.
+
+Les éléments **header**, **nav**, **main** et **footer** sont sémantiques : Ils donnent une signification aux éléments qu'ils regroupent et ne devrait être utilisés qu'une fois par page Web chacun. (Sauf nav)
+
+**En terme d'utilité, ils sont similaires à div :** Ils regroupent des éléments.
+
+**Cependant**, les balises sémentiques offrent des avantages au niveau de l'accessibilité (Accès au contenu pour les utilisateurs avec handicap) .
+
+:::warning Attention
+En terme d'utilité, ils sont similaires à **div** : Ils regroupent des éléments.
+:::
+
+---
+
+## 🌈 Styles de base
 
 Pour conclure, abordons quelques styles CSS de base :
 
-- **Styles colores**
-- **Styles de texte**
-- **Styles de police** 🤷‍♂️
+1. [Styles pour les couleurs](#-couleurs)
+2. [Styles pour le texte](#-texte)
+3. [Styles pour la  police de caractères](#-police-de-caractères)
 
 Pour les curieux / étudiants qui ne dorment pas :
 
@@ -652,108 +594,135 @@ Liste de tous les styles CSS : **https://www.w3schools.com/cssref/**
 
 ---
 
-### Règle `color`
+### 🎨 Couleurs
+
+#### Règle `color`
 
 Change la **couleur du texte**.
 
 ```html
-<p style="color:mediumturquoise;">Ce texte est coloré. C'est excitant !</p>
+    <div style="color: #F5DF4D;">
+        <p>2021 - Illuminating</p>
+        <p>Hex #F5DF4D</p>
+        <p>PANTONE 13-0647</p>
+        <p>https://www.w3schools.com/colors/colors_trends.asp</p>
+    </div>
 ```
 
-<!-- ![Color exemple](../../static/img/1/color-exemple.png) -->
 
-**Rendu :**
-```
-Ce texte est coloré. C'est excitant !
-```
-(en turquoise moyen)
+
+**Résultats :**
+
+![Color exemple](../../static/img/2/exemple-color.png)
 
 ---
 
-### Règle `background-color`
+#### Règle `background-color`
 
 Change la **couleur de fond** d'un élément.
 
 ```html
 <h2>Le CSS c'est trépidant.</h2>
 
-<div style="background-color:mistyrose;">
-    <p>La couleur de fond sous ce texte a été modifiée.</p>
-    <p>C'est incroyable !</p>
-</div>
+    <div style="background-color: #88B04B;">
+        <p>2017 Greenery</p>
+        <p>Hex #88B04B</p>
+        <p>Pantone 15-0343</p>
+        <p>https://www.w3schools.com/colors/colors_trends.asp</p>
+    </div>
 ```
 
-<!-- ![Background-color exemple](../../static/img/1/background-color-exemple.png) -->
+**Résultats :**
 
-**Rendu :**
-```
-Le CSS c'est trépidant.
-
-[Fond rose pâle]
-La couleur de fond sous ce texte a été modifiée.
-C'est incroyable !
-```
+![Color exemple](../../static/img/2/exemple-background-color.png)
 
 ---
 
-### Règle `border`
+#### Règle `border`
 
 Encadre un élément / du texte avec une bordure.
 
 **Syntaxe :**
 
-```css
+```
 border: [style] [couleur] [largeur];
 ```
 
-**Types de bordure :** Elle est **continue** ou elle **n'est pas continue** (dashed, dotted, double...)
+1. **Types de bordure (style) ← Obligatoire :** Elle est **continue** (solid) ou elle **n'est pas continue** (dashed, dotted, double...)
 
-**Couleur de la bordure**
+2. **Couleur de la bordure:** Il s'agit de la couleur de la bordure, définie comme pour la couleur de texte ou le fond.
 
-**Largeur de la bordure** (ici, mesurée en pixels)
+3. **Largeur de la bordure:** Elle sera mesurée en pixels (`px`).
+
+```html
+<div>
+    <p>2013 Emerald</p>
+    <p style="border: 4px solid #009B77;" >Hex #009B77</p>
+    <p>Pantone 17-5641</p>
+    <p>https://www.w3schools.com/colors/colors_trends.asp</p>
+</div>
+```
+
+**Résultats :**
+
+![Border exemple](../../static/img/2/exemple-border.png)
+
+
+:::info Information 
+
+`border` est une propriété abrégée permettant de définir la largeur, le style et la couleur de la bordure. Comme bien d'autres propriétés css, une propriété abrégée permet de définir plusieurs propriétés en une seule ligne.
+
+:::
+:::info Information 
+
+Une propriété abrégée possède des propriété obligatoires et optionnels. De plus, il n'y a pas d'ordre des propriétés. Ainsi, les deux codes `ccs` suivants sont équivalents :
 
 ```css
-<style>
-    .special {
-        border: orchid solid 2px;
-    }
-</style>
-
-<p>Certains mots sont si <span class="special">spéciaux</span> qu'on peut les encadrer.</p>
+border: 4px solid #009B77;
 ```
 
-<!-- ![Border exemple](../../static/img/1/border-exemple.png) -->
-
-**Rendu :**
+```css
+border: solid #009B77 4px;
 ```
-Certains mots sont si [spéciaux] qu'on peut les encadrer.
-```
-(avec bordure orchidée)
 
+:::
 ---
 
-### Comment choisir une couleur PRÉCISE ?
+#### Comment choisir une couleur PRÉCISE ?
 
-On peut utiliser un des **145 noms de couleurs** que CSS connaît... (blue, red, yellow, green, rebeccapurple, saddlebrown, peru, etc.)
+- Utiliser un des **140 noms de couleurs** que CSS connaît... (blue, red, yellow, green, rebeccapurple, saddlebrown, peru, etc.) [https://www.w3schools.com/cssref/css_colors.php](https://www.w3schools.com/cssref/css_colors.php).
 
-Ou utiliser le **code hexadécimal** d'une couleur précise :
+- Utiliser le **code hexadécimal** d'une couleur précise :
 
 ```css
 .special {
-    color: #e05eb3;
+    color: #e05eb2;
 }
 ```
 
-<!-- ![Color picker](../../static/img/1/color-picker.png) -->
+- Ou utiliser l'outil de sélection de couleur de Visual Studio Code en cliquant sur la case de couleur.
 
-**Pipette à couleurs en ligne :**
-https://htmlcolorcodes.com/color-picker/
+![Color picker](../../static/img/2/color-picker.png)
+
+:::info Information
+- **Pipette à couleurs en ligne :**
+[https://htmlcolorcodes.com/color-picker/](https://htmlcolorcodes.com/color-picker/)
+
+- **Extension de navigateur pour selectionner une couleur depuis un site web:**
+    - **Chrome :** [https://chromewebstore.google.com/detail/colorzilla/bhlhnicpbhignbdhedgjhgdocnmhomnp](https://chromewebstore.google.com/detail/colorzilla/bhlhnicpbhignbdhedgjhgdocnmhomnp)
+    - **Firefox :** [https://addons.mozilla.org/en-CA/firefox/addon/colorzilla/](https://addons.mozilla.org/en-CA/firefox/addon/colorzilla/)
+
+
+- **Logiciel pour avoir une pipette à couleur directement dans Windows:**
+[https://learn.microsoft.com/en-us/windows/powertoys/color-picker](https://learn.microsoft.com/en-us/windows/powertoys/color-picker)
+**
+:::
 
 ---
 
-## ✍️ Styles de texte
+### ✍️ Texte
 
-### Règle `text-align`
+#### Règle `text-align`
 
 Change **l'alignement horizontal** d'un texte. (Options : left, center, right, justify)
 
@@ -763,21 +732,13 @@ Change **l'alignement horizontal** d'un texte. (Options : left, center, right, j
 <p style="text-align:center;">Ce texte est aligné au centre.</p>
 ```
 
-<!-- ![Text-align exemple](../../static/img/1/text-align-exemple.png) -->
+**Résultats :**
 
-**Rendu :**
-
-```
-Vive le vent !
-
-Ce texte est aligné par défaut.
-                        Ce texte est aligné à droite.
-            Ce texte est aligné au centre.
-```
+![Text-align exemple](../../static/img/2/exemple-text-align.png)
 
 ---
 
-### Règle `text-decoration`
+#### Règle `text-decoration`
 
 Permet de mettre un trait sur / à travers / sous le texte. (Options : underline, overline, line-through, none)
 
@@ -787,18 +748,13 @@ Permet de mettre un trait sur / à travers / sous le texte. (Options : underline
 <p style="text-decoration:line-through;">Ce texte est rayé.</p>
 ```
 
-<!-- ![Text-decoration exemple](../../static/img/1/text-decoration-exemple.png) -->
+**Résultats :**
 
-**Rendu :**
-```
-Ce texte n'a pas de trait.
-Ce texte est souligné. (souligné)
-Ce texte est rayé. (barré)
-```
+![Text-decoration exemple](../../static/img/2/exemple-text-decoration.png)
 
 ---
 
-### Règle `text-transform`
+#### Règle `text-transform`
 
 Détermine si le texte est en majuscules / minuscules. (Options : lowercase, uppercase, capitalize)
 
@@ -808,46 +764,40 @@ Détermine si le texte est en majuscules / minuscules. (Options : lowercase, upp
 <p style="text-transform:capitalize;">Ce Texte Sera Similaire À Un Titre En Anglais.</p>
 ```
 
-<!-- ![Text-transform exemple](../../static/img/1/text-transform-exemple.png) -->
 
-**Rendu :**
-```
-CE TEXTE EST EN MAJUSCULES.
 
-ce texte sera en minuscules.
+**Résultats :**
 
-Ce Texte Sera Similaire À Un Titre En Anglais.
-```
+![Text-transform exemple](../../static/img/2/exemple-text-transform.png)
 
 ---
 
-## 🔤 Styles de police
+### 🔤 Police de caractères
 
-### Règle `font-family`
+#### Règle `font-family`
 
 Détermine la **famille de police** du texte (Les options sont TRÈS nombreuses : Times New Roman, Verdana, Calibri, Courrier New, etc.)
 
 ```html
-<p style="font-family:Verdana;">"Times New Roman";</p>
-
-<p>Ce texte est en majuscules.</p>
+<p style="font-family:Verdana;">Ce texte est en Verdana.</p>
+<p style="font-family:'Times New Roman';">Ce texte est en Times New Roman.</p>
+<p style="font-family:'Lucida Handwriting';">Ce texte est en Lucida Handwriting</p>
+<p style="font-family:Verdana,'Times New Roman';">Ce texte est en Times New Roman uniquement si Verdana n'est pas disponible.</p>
 ```
+**Résultats :**
 
-<!-- ![Font-family exemple](../../static/img/1/font-family-exemple.png) -->
+![Font-family exemple](../../static/img/2/exemple-font-family.png)
 
+:::info Information
 **On peut ordonner plusieurs polices en les séparant par des virgules.** Si jamais la première police n'est pas disponible dans le navigateur, la suivante sera utilisée.
-
-**Une police qui doit être écrite en plusieurs mots doit être encadrée avec des apostrophes.**
-
-Cela ne se voit peut-être pas, mais ce texte est en Verdana.
-
+:::
 :::warning Attention
 Une police qui doit être écrite en plusieurs mots doit **être encadrée avec des apostrophes**.
 :::
 
 ---
 
-### Règle `font-style`
+#### Règle `font-style`
 
 Règle qui détermine « **à quel point une police est penchée / italique** ».
 
@@ -859,18 +809,13 @@ Règle qui détermine « **à quel point une police est penchée / italique** »
 <p style="font-style:oblique;">Les lettres ont peur de tomber.</p>
 ```
 
-<!-- ![Font-style exemple](../../static/img/1/font-style-exemple.png) -->
+**Résultats :**
 
-**Rendu :**
-```
-Les lettres sont stables.
-Les lettres font comme Michael Jackson. (italique)
-Les lettres ont peur de tomber. (oblique)
-```
+![Font-style exemple](../../static/img/2/exemple-font-style.png)
 
 ---
 
-### Règle `font-size`
+#### Règle `font-size`
 
 Détermine la **taille du texte**. Calculé en **pixels** ou en **em**. 1 em = taille ordinaire, 2 em = double de la taille ordinaire.
 
@@ -879,174 +824,52 @@ Détermine la **taille du texte**. Calculé en **pixels** ou en **em**. 1 em = t
 <p style="font-size:2em;">Texte deux fois plus grand.</p>
 <p style="font-size:200px;">Texte un peu grand.</p>
 ```
+**Résultats :**
 
-<!-- ![Font-size exemple](../../static/img/1/font-size-exemple.png) -->
+![Font-size exemple](../../static/img/2/exemple-font-size.png)
 
-**Rendu :**
-```
-Vive le vent !
-
-Texte de taille ordinaire.
-
-Texte deux fois plus grand.
-
-Texte un peu grand.
-```
-
----
-
-## 📝 Résumé de la partie CSS
-
-### Concepts clés
-
-1. **CSS** = Cascading Style Sheet (Feuille de style en cascade)
-2. CSS décrit **comment afficher les éléments HTML**
-3. Une règle CSS = **attribut: valeur;**
-4. **3 méthodes** d'application : Intraligne, Interne, Externe
-5. **3 types de sélecteurs** principaux : Élément, Classe, ID
-6. **Priorité** : Style intraligne > ID > Classe > Élément
-
----
-
-### Les 3 méthodes d'application CSS
-
-| Méthode | Syntaxe | Recommandation |
-|---------|---------|----------------|
-| **CSS Intraligne** | `<p style="color:red;">` | ⚠️ À éviter (sauf cas particulier) |
-| **CSS Interne** | `<style>` dans `<head>` | ⚠️ À éviter (sauf page unique) |
-| **CSS Externe** | Fichier `.css` + `<link>` | ✅ **À privilégier !** |
-
----
-
-### Les sélecteurs CSS
-
-| Type | Syntaxe | Utilisation | Exemple |
-|------|---------|-------------|---------|
-| **Élément** | `p { }` | Tous les éléments du type | `p { color: blue; }` |
-| **Classe** | `.nom { }` | Plusieurs éléments | `<p class="nom">` |
-| **ID** | `#nom { }` | Un seul élément par page | `<p id="nom">` |
-
-**Priorité :** Style intraligne > ID > Classe > Élément
-
----
-
-### Éléments de groupement
-
-| Élément | Type | Description |
-|---------|------|-------------|
-| `<div>` | Générique (bloc) | Conteneur pour grouper plusieurs éléments |
-| `<span>` | Générique (inline) | Conteneur pour une portion de texte |
-| `<header>` | Sémantique | En-tête de la page |
-| `<nav>` | Sémantique | Menu de navigation |
-| `<main>` | Sémantique | Contenu principal |
-| `<footer>` | Sémantique | Pied de page |
 
 :::info Information
-Les éléments **sémantiques** (header, nav, main, footer) offrent des avantages pour l'**accessibilité**.
+**Pour voir tous les unités de mesure utilisable en css**, [w3schools explique très bien chacune des unités de mesure permises](https://www.w3schools.com/cssref/css_units.php)
 :::
-
 ---
 
-### Styles de base - Couleurs
+### Règle `font-weight`
 
-| Propriété | Description | Exemple |
-|-----------|-------------|---------|
-| `color` | Couleur du texte | `color: blue;` |
-| `background-color` | Couleur de fond | `background-color: lightblue;` |
-| `border` | Bordure | `border: solid black 2px;` |
+Détermine l'**épaisseur** du texte. (Options : normal, bold, bolder, lighter, ou un nombre entre 100 et 900)
 
-**Formats de couleurs :**
-- **Noms** : `red`, `blue`, `rebeccapurple` (145 noms)
-- **Hexadécimal** : `#FF5733`, `#e05eb3`
-- **RGB** : `rgb(255, 87, 51)`
-
-**Outil recommandé :** https://htmlcolorcodes.com/color-picker/
-
----
-
-### Styles de texte
-
-| Propriété | Description | Valeurs possibles |
-|-----------|-------------|-------------------|
-| `text-align` | Alignement horizontal | `left`, `center`, `right`, `justify` |
-| `text-decoration` | Décoration du texte | `none`, `underline`, `overline`, `line-through` |
-| `text-transform` | Transformation du texte | `none`, `uppercase`, `lowercase`, `capitalize` |
-
-**Exemples :**
-
-```css
-text-align: center;          /* Centre le texte */
-text-decoration: underline;  /* Souligne le texte */
-text-transform: uppercase;   /* MAJUSCULES */
+```html
+<p style="font-weight:normal;">Texte normal.</p>
+<p style="font-weight:bold;">Texte en gras.</p>
+<p style="font-weight:900;">Texte très gras.</p>
 ```
 
----
+**Résultats :**
 
-### Styles de police
-
-| Propriété | Description | Exemple |
-|-----------|-------------|---------|
-| `font-family` | Famille de police | `font-family: Arial, sans-serif;` |
-| `font-size` | Taille du texte | `font-size: 16px;` ou `font-size: 1em;` |
-| `font-style` | Style du texte | `font-style: italic;` |
-| `font-weight` | Épaisseur du texte | `font-weight: bold;` |
-
-**Notes importantes :**
-
-✅ Pour `font-family`, on peut lister plusieurs polices séparées par des virgules
-
-✅ Les polices avec espaces doivent être entre apostrophes : `'Times New Roman'`
-
-✅ `font-size` : 1em = taille normale, 2em = double
+![Font-weight exemple](../../static/img/2/exemple-font-weight.png)
 
 ---
 
-### Bonnes pratiques CSS
+### Règle `line-height`
 
-✅ **Privilégier le CSS externe** pour faciliter la maintenance
+Détermine la **hauteur de ligne** d'un texte. Cela affecte l'espacement entre les lignes.
 
-✅ **Utiliser des noms de classes descriptifs** (.titre-principal, .bouton-rouge)
+```html
+<p style="line-height:1.5;">Texte avec un espacement de ligne de 1.5.</p>
+<p style="line-height:2;">Texte avec un espacement de ligne de 2.</p>
+<p style="line-height:5;">Texte avec un espacement de ligne de 5.</p>
+```
 
-✅ **Éviter les IDs pour le style**, préférer les classes
+**Résultats :**
 
-✅ **Utiliser les éléments sémantiques** (header, nav, main, footer) quand approprié
+![Line-height exemple](../../static/img/2/exemple-line-height.png)
 
-✅ **Grouper les styles similaires** pour éviter la répétition
+:::info Information
+Une border à été ajouté afin de mieux visualiser l'espacement de ligne de chaque p.
 
-✅ **Commenter votre CSS** pour expliquer les sections complexes
-
----
-
-## 🎯 Fin de la partie CSS
-
-**Félicitations !** Vous maîtrisez maintenant les bases de CSS ! 🎉
-
-Vous savez :
-- ✅ Appliquer du CSS de 3 façons différentes
-- ✅ Utiliser les sélecteurs (élément, classe, id)
-- ✅ Comprendre la priorité des styles
-- ✅ Organiser votre code avec div, span et éléments sémantiques
-- ✅ Styliser les couleurs, textes et polices
-
----
-
-**Ressources utiles :**
-
-📚 **Liste complète des propriétés CSS :** https://www.w3schools.com/cssref/
-
-🎨 **Sélecteur de couleurs :** https://htmlcolorcodes.com/color-picker/
-
-📖 **Documentation CSS :** https://developer.mozilla.org/fr/docs/Web/CSS
-
----
-
-**Prochaines étapes :**
-
-Avec HTML et CSS maîtrisés, vous pouvez maintenant :
-- 🎨 Créer des pages Web attractives et bien structurées
-- 📱 Apprendre le responsive design (adaptation mobile)
-- 🎭 Découvrir les animations CSS
-- 📦 Explorer les layouts avancés (Flexbox, Grid)
-- ✨ Ajouter de l'interactivité avec JavaScript
-
----
+```css
+p {
+    border: 1px black solid;
+}
+```
+:::
