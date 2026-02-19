@@ -788,11 +788,30 @@ Détermine la **famille de police** du texte (Les options sont TRÈS nombreuses 
 
 ![Font-family exemple](../../static/img/2/exemple-font-family.png)
 
+---
+
+Il existe plusieurs type de polices, voici les cinq grandes familles :
+
+1. Les polices à empattement (**Serif**) possèdent un petit trait à l'extrémité de chaque lettre. Elles confèrent une impression de formalité et d'élégance.
+2. Les polices sans empattement (**Sans Serif**) ont des lignes épurées (sans petits traits). Elles créent un style moderne et minimaliste.
+3. Les polices à chasse fixe (**Monospace**) sont composées de lettres de même largeur. Elles donnent un aspect mécanique.
+
+Les deux familles suivantes sont moins souvent utilisées dans le cadre d'un site web et relève plutot de cas particuliés.
+4. Les polices **Cursives** imitent l'écriture manuscrite.
+5. Les polices **Fantaisie** sont des polices décoratives et ludiques.
+
+![Font-family exemple](../../static/img/2/typography-font-types.png)
+
 :::info Information
 **On peut ordonner plusieurs polices en les séparant par des virgules.** Si jamais la première police n'est pas disponible dans le navigateur, la suivante sera utilisée.
 :::
+
 :::warning Attention
 Une police qui doit être écrite en plusieurs mots doit **être encadrée avec des apostrophes**.
+:::
+
+:::info Information
+
 :::
 
 ---
