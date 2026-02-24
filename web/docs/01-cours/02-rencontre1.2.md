@@ -851,6 +851,7 @@ Détermine la **taille du texte**. Calculé en **pixels** ou en **em**. 1 em = t
 :::info Information
 **Pour voir tous les unités de mesure utilisable en css**, [w3schools explique très bien chacune des unités de mesure permises](https://www.w3schools.com/cssref/css_units.php)
 :::
+
 ---
 
 ### Règle `font-weight`
